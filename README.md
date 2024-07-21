@@ -22,7 +22,7 @@ This project aims to build a system that can detect software crashes by analyzin
 
 2. Install the required libraries:
 
-    ``` bash
+    ```bash
     pip install -r requirements.txt
     ```
 
@@ -34,9 +34,9 @@ Ensure your log data is in CSV format. Place the CSV file in the project directo
 
 Run the data preparation script to preprocess the data:
 
-    ``` 
+    ```bash
     python3 data_preparation.py
-    ``` 
+    ```
 
 ## Model Training
 
@@ -44,7 +44,7 @@ Train the GPT-2 model on your preprocessed data:
 
 Run the training script:
 
-    ```
+    ```bash
     python3 train_model.py
     ```
 
@@ -56,7 +56,7 @@ This will fine-tune the GPT-2 model on your log data. The fine-tuned model will 
 
 Run the Flask app:
 
-    ```
+    ```bash
     python3 app.py
     ```
 
