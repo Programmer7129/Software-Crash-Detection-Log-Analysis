@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Crash Detection System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Software Crash Detection System</h1>
+    <form id="uploadForm" method="post" enctype="multipart/form-data" class="space-y-4">
+        <div>
+            <label class="block text-gray-700">Log File</label>
+            <input type="file" name="logFile" class="w-full p-2 border border-gray-300 rounded">
+        </div>
+        <div>
+            <label class="block text-gray-700">Problem Type</label>
+            <select name="problemType" class="w-full p-2 border border-gray-300 rounded">
+                <option value="crash">Crash</option>
+                <option value="slow_performance">Slow Performance</option>
+                <option value="error_message">Error Message</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-gray-700">User Feedback</label>
+            <textarea name="feedback" class="w-full p-2 border border-gray-300 rounded"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+    </form>
+    <div id="response" class="mt-4"></div>
+</div>
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const response = await fetch('/upload', {
+            method: 'POST',
+            body: formData,
+        });
+        const result = await response.json();
+        document.getElementById('response').innerText = result.response;
+    });
+</script>
+</body>
+</html>

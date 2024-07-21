@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Crash Detection</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Software Crash Detection System</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label class="block text-gray-700">Log File</label>
+                <input type="file" name="logFile" class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700">User Feedback</label>
+                <select name="feedback" class="w-full p-2 text-black border border-gray-300 rounded">
+                    <option value="">Select a reason</option>
+                    <option value="Application crashed">Application crashed</option>
+                    <option value="Memory leak">Memory leak</option>
+                    <option value="Network issue">Network issue</option>
+                    <option value="Disk error">Disk error</option>
+                    <option value="Hardware failure">Hardware failure</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700">Additional Comments</label>
+                <textarea name="additionalComments" class="w-full p-2 text-black border border-gray-300 rounded"></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
